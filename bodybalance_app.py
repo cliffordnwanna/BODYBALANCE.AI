@@ -2,8 +2,27 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 import streamlit as st
+import gdown
+import os
 
-# Download NLTK resources
+
+
+# Define the file URL
+url = 'https://drive.google.com/file/d/17oFQy97Loft7KY1EE5odtPMo2nCZCmzY/view?usp=drive_link'
+
+# Define the local file path to save the downloaded file
+local_file_path = 'training_data.txt'
+
+# Download the file from Google Drive
+gdown.download(url, local_file_path, quiet=False)
+
+# Check if the file has been downloaded successfully
+if os.path.exists(local_file_path):
+    print("File downloaded successfully!")
+else:
+    print("Failed to download the file.")
+
+# Load NLTK resources
 nltk.download('punkt')
 nltk.download('stopwords')
 
@@ -12,7 +31,7 @@ stop_words = set(stopwords.words('english'))
 
 # Load the questions and answers from the text file
 qa_pairs = {}
-with open('C:/Users/HP/Desktop/GOMYCODE/bodybalance/BODYBALANCE.AI/training_data.txt', 'r') as file:
+with open(local_file_path, 'r') as file:
     lines = file.readlines()
     i = 0
     while i < len(lines):
@@ -53,7 +72,7 @@ def find_similar_question(user_question):
 def main():
     st.title("BODYBALANCE.AI")
     st.write("Hello! I'm a chatbot designed by Clifford.")
-    st.write ("How can i help you today")
+    st.write ("How can i help you today ?")
 
     st.write ("You can also choose from the options below:")
     st.write ("About BodyBalance| Product Information | Product catalog | Ordering Process | Shipping and Delivery | Return Policy | Technical Support | Contact and Assistance | Special Offers and Promotions")
