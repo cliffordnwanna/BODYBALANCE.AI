@@ -36,14 +36,15 @@ with open(local_file_path, 'r') as file:
     i = 0
     while i < len(lines):
         if lines[i].strip().startswith("question:"):
-            question = lines[i].strip().split(':')[1].strip()
+            question = lines[i].strip().split(':', 1)[1].strip()  # Split at the first occurrence of ":"
             i += 1
             if i < len(lines) and lines[i].strip().startswith("answer:"):
-                answer = lines[i].strip().split(':')[1].strip()
+                answer = lines[i].strip().split(':', 1)[1].strip()  # Split at the first occurrence of ":"
                 qa_pairs[question] = answer
             else:
                 st.warning(f"Invalid format for question: {question}")
         i += 1
+
 
 # Function to preprocess text
 def preprocess_text(text):
