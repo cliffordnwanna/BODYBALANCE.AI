@@ -12,7 +12,7 @@ stop_words = set(stopwords.words('english'))
 
 # Load the questions and answers from the text file
 qa_pairs = {}
-with open('C:/Users/HP/Desktop/GOMYCODE/bodybalance/FAQs_text_file.txt', 'r') as file:
+with open('C:/Users/HP/Desktop/GOMYCODE/bodybalance/BODYBALANCE.AI/training_data.txt', 'r') as file:
     lines = file.readlines()
     i = 0
     while i < len(lines):
