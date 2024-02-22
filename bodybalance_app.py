@@ -1,27 +1,35 @@
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+from nltk.corpus import wordnet
 import streamlit as st
-import gdown
+import requests
 import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-
+from gensim.models import Word2Vec
 
 # Define the file URL
-url = 'https://drive.google.com/file/d/17oFQy97Loft7KY1EE5odtPMo2nCZCmzY/view?usp=drive_link'
+url = 'https://drive.google.com/uc?id=17oFQy97Loft7KY1EE5odtPMo2nCZCmzY&export=download'
 
 # Define the local file path to save the downloaded file
 local_file_path = 'training_data.txt'
 
 # Download the file from Google Drive
-gdown.download(url, local_file_path, quiet=False)
+def download_file(url, local_file_path):
+    with requests.get(url, stream=True) as r:
+        r.raise_for_status()
+        with open(local_file_path, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=8192): 
+                f.write(chunk)
 
 # Check if the file has been downloaded successfully
-if os.path.exists(local_file_path):
+try:
+    download_file(url, local_file_path)
     print("File downloaded successfully!")
-else:
-    print("Failed to download the file.")
+    print("File saved at:", os.path.abspath(local_file_path))  # Print the absolute path of the saved file
+except Exception as e:
+    print("Failed to download the file:", str(e))
 
 # Load NLTK resources
 nltk.download('punkt')
@@ -46,7 +54,6 @@ with open(local_file_path, 'r') as file:
                 st.warning(f"Invalid format for question: {question}")
         i += 1
 
-
 # Function to preprocess text
 def preprocess_text(text):
     # Tokenize text into words
@@ -54,6 +61,16 @@ def preprocess_text(text):
     # Remove punctuation and stopwords
     tokens = [word for word in tokens if word.isalnum() and word not in stop_words]
     return tokens
+
+# Function to train Word2Vec model
+def train_word2vec_model(sentences):
+    # Train the Word2Vec model
+    if sentences:
+        word2vec_model = Word2Vec(sentences, vector_size=100, window=5, min_count=1, sg=1)
+        print("Word2Vec model trained successfully!")
+    else:
+        print("No valid sentences found. Cannot train Word2Vec model.")
+    return word2vec_model
 
 # Function to calculate cosine similarity
 def calculate_cosine_similarity(user_input, questions):
@@ -66,9 +83,15 @@ def calculate_cosine_similarity(user_input, questions):
 def find_similar_question(user_input):
     user_tokens = preprocess_text(user_input)
     questions = list(qa_pairs.keys())
+    
+    # Check if either user input or questions list is empty
+    if not user_tokens or not questions:
+        return None
+    
     similarities = calculate_cosine_similarity(user_input, questions)
     max_sim_idx = similarities.argmax()
     max_similarity = similarities[max_sim_idx]
+    
     if max_similarity > 0:
         most_similar_question = questions[max_sim_idx]
         return most_similar_question
