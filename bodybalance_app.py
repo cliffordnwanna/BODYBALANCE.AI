@@ -1,13 +1,11 @@
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-from nltk.corpus import wordnet
 import streamlit as st
 import requests
 import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from gensim.models import Word2Vec
 
 # Define the file URL
 url = 'https://drive.google.com/uc?id=17oFQy97Loft7KY1EE5odtPMo2nCZCmzY&export=download'
@@ -20,7 +18,7 @@ def download_file(url, local_file_path):
     with requests.get(url, stream=True) as r:
         r.raise_for_status()
         with open(local_file_path, 'wb') as f:
-            for chunk in r.iter_content(chunk_size=8192): 
+            for chunk in r.iter_content(chunk_size=8192):
                 f.write(chunk)
 
 # Check if the file has been downloaded successfully
@@ -34,8 +32,6 @@ except Exception as e:
 # Load NLTK resources
 nltk.download('punkt')
 nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('omw-1.4')
 
 # Load stopwords corpus
 stop_words = set(stopwords.words('english'))
@@ -63,16 +59,6 @@ def preprocess_text(text):
     # Remove punctuation and stopwords
     tokens = [word for word in tokens if word.isalnum() and word not in stop_words]
     return tokens
-
-# Function to train Word2Vec model
-def train_word2vec_model(sentences):
-    # Train the Word2Vec model
-    if sentences:
-        word2vec_model = Word2Vec(sentences, vector_size=100, window=5, min_count=1, sg=1)
-        print("Word2Vec model trained successfully!")
-    else:
-        print("No valid sentences found. Cannot train Word2Vec model.")
-    return word2vec_model
 
 # Function to calculate cosine similarity
 def calculate_cosine_similarity(user_input, questions):
@@ -107,7 +93,7 @@ def main():
     st.write("How can I help you today ?")
 
     st.write("You can also choose from the options below:")
-    st.write("About BodyBalance| Product Information | Product catalog | Ordering Process | Shipping and Delivery | Return Policy | Technical Support | Contact and Assistance | Special Offers and Promotions")
+    st.write("About BodyBalance | Product Information | Product catalog | Ordering Process | Shipping and Delivery | Return Policy | Technical Support | Contact and Assistance | Special Offers and Promotions")
 
     input_mode = st.radio("Select Input Mode:", ("Text", "Speech"))
 
