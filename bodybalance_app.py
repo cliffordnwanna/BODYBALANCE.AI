@@ -34,6 +34,8 @@ except Exception as e:
 # Load NLTK resources
 nltk.download('punkt')
 nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 
 # Load stopwords corpus
 stop_words = set(stopwords.words('english'))
