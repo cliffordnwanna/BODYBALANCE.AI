@@ -105,6 +105,7 @@ To run this project locally, follow the steps below:
  ![BodyBalance AI](https://github.com/cliffordnwanna/BODYBALANCE.AI/raw/main/images/recommendation.png)
 
 3. **Customer Support:**
+   
 ![BodyBalance AI](https://github.com/cliffordnwanna/BODYBALANCE.AI/raw/main/images/support.png)
 
 ---
