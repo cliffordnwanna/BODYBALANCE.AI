@@ -53,7 +53,7 @@ Product Information
 Ordering Process
 1. Order Placement:
    question: How can I place an order on your website?
-   answer: To place an order, simply visit our website [www.example.com], browse our products, add your desired items to the cart, and proceed to checkout. Follow the prompts to enter your shipping information and choose a payment method.
+   answer: To place an order, simply visit our website [www.bodybalance.com.ng], browse our products, add your desired items to the cart, and proceed to checkout. Follow the prompts to enter your shipping information and choose a payment method.
 
 
 2. Payment Methods:
