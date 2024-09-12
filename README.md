@@ -1,5 +1,7 @@
 # BODYBALANCE.AI 
 
+ ![BodyBalance AI](https://github.com/cliffordnwanna/BODYBALANCE.AI/raw/main/images/bodybalance.png)
+
 ## Project Overview
 
 **BODYBALANCE.AI** is an AI-driven chatbot designed to revolutionize customer interaction for the BodyBalance brand. This project leverages cutting-edge machine learning and natural language processing techniques to provide real-time responses to customer inquiries. By recommending pain relief products and assisting customers in placing orders, the chatbot not only enhances the customer support experience but also drives increased engagement and sales opportunities for wellness businesses.
@@ -94,19 +96,16 @@ To run this project locally, follow the steps below:
 
 ## Screenshots
 
-1. **Chatbot Interface:**
+1. **Chatbot Interface:** 
 
-   *Insert a screenshot of the main chatbot interface here.*
+ ![BodyBalance AI](https://github.com/cliffordnwanna/BODYBALANCE.AI/raw/main/images/interface.png)
 
 2. **Product Recommendations:**
 
-   *Insert a screenshot showing the chatbot recommending products.*
+ ![BodyBalance AI](https://github.com/cliffordnwanna/BODYBALANCE.AI/raw/main/images/recommendation.png)
 
-3. **Order Assistance:**
-
-   *Insert a screenshot showing the chatbot helping a user with placing an order.*
-4. **Customer Support:**
-   ![BodyBalance AI](https://github.com/cliffordnwanna/BODYBALANCE.AI/raw/main/images/bodybalance.jpg)
+3. **Customer Support:**
+   ![BodyBalance AI](https://github.com/cliffordnwanna/BODYBALANCE.AI/raw/main/images/support.png)
 
 ---
 
