@@ -116,7 +116,7 @@ Technical Support
 Contact and Assistance
 1. Customer Support:
    question: How can I contact customer support?
-   answer: You can contact our customer support via email at support@bodybalance.com or use the chatbot on our website for instant assistance.
+   answer: You can contact our customer support via email at support@bodybalance.com.ng or use the chatbot on our website for instant assistance.
 
 
 2. question: What are the customer support hours, and how quickly can inquiries be expected to be addressed?
@@ -172,40 +172,42 @@ About BodyBalance
 
 4. History of bodybalance 
   question: How did BodyBalance start, and what is the inspiration behind the brand?
-   answer: BodyBalance was founded in 2020 with the vision of addressing the common yet often overlooked issue of pain. The inspiration came from a desire to create solutions that not only alleviate pain but also promote
+   answer: BodyBalance was founded in 2020 with the vision of addressing the common yet often overlooked issue of pain. The inspiration came from a desire to create solutions that not only alleviate pain but also reduce dependency on painkillers.
 
 
 
 
 
 question: PRODUCT CATALOG
-answer: Scan the barcode or tap the link [www.bodybalance.com.ng/catalog]
+answer: Tap the link [www.bodybalance.com.ng/catalog] to access our wde range of products
 
-question: product list and product prices 
+question: which product can i used after workout for deep tissue massage? 
 answer: PRODUCT : FOAM ROLLER 
-PRICE : 10,000 NGN
+PRICE : 20,000 NGN
 PRODUCT DESCRIPTION: For deep tissue muscle massage.
-www.google.com 
+www.bodybalance.com.ng/catalog/foamroller 
 
 
 
 
   
-
+question : recommend a product for carrying equipment 
+answer :
 PRODUCT: DRAWSTRING WATERPROOF BAG
-PRICE : 5000 NGN
+PRICE : 15000 NGN
 PRODUCT DESCRIPTION: For carrying exercise equipment and accessories.
-www.google.com
+www.bodybalance.com.ng/catalog/drawstringbag
 
 
 
 
   
-
+question : which product can i used for stretches and floor excercises?
+answer :
 PRODUCT: YOGA MAT WITH BAG
 PRICE : 15000 NGN
 PRODUCT DESCRIPTION: For stretches and exercises that alleviate pain and improve posture.
-www.google.com
+www.bodybalance.com.ng/catalog/yogamatwithbag
 
 
 
@@ -213,41 +215,45 @@ www.google.com
 
 
   
-
+question : how do i strenghten joints and reduce pain?
+answer: 
 PRODUCT: BLACK RESISTANCE BAND
 PRICE : 5000 NGN
 PRODUCT DESCRIPTION: Can be used for resistance exercises that strengthen joints and reduce pain.
-www.google.com
+www.bodybalance.com.ng/catalog/resistanceband
 
 
 
 
   
-
+question: warm or cold relief to joint pain
+answer:
 PRODUCT: HOT & COLD WATER RUBBER BOTTLE WITH WOOLEN INSULATION 
 PRICE : 10,000 NGN
 PRODUCT DESCRIPTION: Our customized rubber bottles with woolen insulation provide warm or cold relief to joint pains.
-www.google.com
+www.bodybalance.com.ng/catalog/rubberbottle
 
 
 
 
   
-
+question : knee pain ?
+answer :
 PRODUCT: ORTHOPEDIC KNEE BRACE
-PRICE : 10000 NGN
+PRICE : 15000 NGN
 PRODUCT DESCRIPTION: For patients with knee pain, knee arthritis and other knee related pain 
-www.google.com
+www.bodybalance.com.ng/catalog/kneebrace
 
 
 
 
   
-
+queston : neck and back pain
+answer :  
 PRODUCT: NECK AND BACK STRETCHER 
-PRICE : 25,000 NGN
+PRICE : 35,000 NGN
 PRODUCT DESCRIPTION: painlessly decompress your spine using the neck and back stretchers. Providing relief to lower back pain and improves overall spinal health. For people with sedentary lifestyles such as tech bros, 9 to 5 workers, drivers, elderly people and every adult that wants an improved posture.
-www.google.com
+www.bodybalance.com.ng/catalog/neckandbackstretcher
 
 
 
