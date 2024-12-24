@@ -7,17 +7,17 @@ import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Function to download NLTK resources if not already available
-def download_nltk_resources():
+# Download required NLTK resources
+def ensure_nltk_resources():
     resources = ['punkt', 'stopwords']
     for resource in resources:
         try:
-            nltk.data.find(f"tokenizers/{resource}" if resource == 'punkt' else resource)
+            nltk.data.find(f'tokenizers/{resource}')
         except LookupError:
             nltk.download(resource)
 
-# Call the function to ensure resources are available
-download_nltk_resources()
+# Call the function to ensure resources
+ensure_nltk_resources()
 
 # Initialize stopwords
 stop_words = set(stopwords.words('english'))
