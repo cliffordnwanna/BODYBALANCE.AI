@@ -7,7 +7,7 @@ import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-nltk.download('punkt')
+nltk.download('punkt_tab')
 
 # Download required NLTK resources
 def ensure_nltk_resources():
