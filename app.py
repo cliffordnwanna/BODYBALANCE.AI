@@ -4,23 +4,19 @@ from nltk.corpus import stopwords
 import streamlit as st
 import requests
 import os
-from nltk.data import find
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# NLTK Resources Download
-#nltk.download('punkt')
-#nltk.download('stopwords')
-
+# Function to download NLTK resources if not already available
 def download_nltk_resources():
     resources = ['punkt', 'stopwords']
     for resource in resources:
         try:
-            nltk.data.find(resource)
+            nltk.data.find(f"tokenizers/{resource}" if resource == 'punkt' else resource)
         except LookupError:
             nltk.download(resource)
 
-# Call the function
+# Call the function to ensure resources are available
 download_nltk_resources()
 
 # Initialize stopwords
