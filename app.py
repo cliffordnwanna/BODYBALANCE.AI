@@ -4,6 +4,7 @@ from nltk.corpus import stopwords
 import streamlit as st
 import requests
 import os
+from nltk.data import find
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -19,7 +20,7 @@ def download_nltk_resources():
         except LookupError:
             nltk.download(resource)
 
-
+# Call the function
 download_nltk_resources()
 
 # Initialize stopwords
