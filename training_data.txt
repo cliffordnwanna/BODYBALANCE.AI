@@ -53,6 +53,11 @@ answer: Check your card details, ensure sufficient funds, or try another payment
 question: Do you offer installment payment options?
 answer: Currently, we do not offer installment payments, but this feature is under development.
 
+question: Shipping & Delivery
+answer: Once your order is dispatched, you will receive a tracking number to monitor delivery progress.
+Delivery times vary by location. Estimated times are displayed during the checkout process.
+We ship locally and internationally. Fees and delivery times vary based on location.
+
 Shipping & Delivery:
 question: How long does delivery take?
 answer: Delivery times vary by location. Estimated times are displayed during the checkout process.
