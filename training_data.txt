@@ -71,7 +71,7 @@ answer: Yes, we ship internationally. Fees and delivery times vary based on the 
 
 Returns & Support:
 question: What is your return policy?
-answer: Products can be returned within 7 days for a full refund or exchange. Detailed instructions are available on our Returns page.
+answer: Products can be returned within 7 days for a full refund or exchange. Detailed instructions are available on our Returns Policy page.
 
 question: Do your products come with a warranty?
 answer: Yes, most BodyBalance products come with a 1-year warranty covering manufacturing defects.
