@@ -84,7 +84,7 @@ def main():
     st.write("How can I help you today?")
 
     st.write("You can also choose from the options below:")
-    st.write("About BodyBalance| Product Information | Product catalog | Ordering Process | Shipping and Delivery | Return Policy | Technical Support | Contact and Assistance | Special Offers and Promotions")
+    st.write("About BodyBalance| Product Information | Ordering Process | Shipping and Delivery | Return Policy | Technical Support | Special Offers and Promotions")
 
     url = 'https://drive.google.com/uc?id=17oFQy97Loft7KY1EE5odtPMo2nCZCmzY&export=download'
     local_file_path = 'training_data.txt'
