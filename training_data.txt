@@ -40,6 +40,9 @@ answer: Yes, our products are designed for individuals of all ages, including yo
 question: What materials are used in your products?
 answer: Our products are crafted from premium materials like memory foam, breathable fabrics, and durable polymers to ensure comfort and longevity.
 
+question : Product Catalog
+answer: NECK AND BACK STRETCHER, MESH LUMBAR ERGONOMIC SUPPORT FOR CHAIRS, BRACES, AI-POWERED PAIN MANAGEMENT ASSISTANT
+
 Ordering & Payments:
 question: Ordering Process, How can I place an order on your website?
 answer: Visit our website [www.bodybalance.com], browse the products, add items to your cart, and proceed to checkout.
