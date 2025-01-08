@@ -84,7 +84,7 @@ Technical Support:
 question: How can I get technical support for BodyBalance products?
 answer: Contact our support team via email support@bodybalance.com
 
-question: Are there resources available for understanding product usage?
+question: Are there resources available?
 answer: Yes, every product includes a manual, and our website features a Resources section for additional help.
 
 question: How do I use the back and neck stretcher?
