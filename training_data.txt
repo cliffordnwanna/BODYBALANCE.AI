@@ -74,7 +74,7 @@ question: Do your products come with a warranty?
 answer: Yes, most BodyBalance products come with a 1-year warranty covering manufacturing defects.
 
 question: What should I do if I encounter issues with a product?
-answer: Contact our support team at support@bodybalance.com for troubleshooting or replacement assistance.
+answer: Contact our support team at support@bodybalance.com for product information, technical and customer support.
 
 Technical Support:
 question: How can I get technical support for BodyBalance products?
