@@ -41,7 +41,7 @@ question: What materials are used in your products?
 answer: Our products are crafted from premium materials like memory foam, breathable fabrics, and durable polymers to ensure comfort and longevity.
 
 Ordering & Payments:
-question: How can I place an order on your website?
+question: Ordering Process, How can I place an order on your website?
 answer: Visit our website [www.bodybalance.com], browse the products, add items to your cart, and proceed to checkout.
 
 question: What payment methods do you accept?
