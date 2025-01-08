@@ -82,7 +82,6 @@ def main():
     st.title("BODYBALANCE.AI")
     st.write("Hello! I'm a chatbot designed by Clifford.")
     st.write("How can I help you today?")
-    st.write("How can I help you today ?")
 
     st.write("You can also choose from the options below:")
     st.write("About BodyBalance| Product Information | Product catalog | Ordering Process | Shipping and Delivery | Return Policy | Technical Support | Contact and Assistance | Special Offers and Promotions")
