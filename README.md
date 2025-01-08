@@ -1,6 +1,6 @@
 # BODYBALANCE.AI 
 
- ![BodyBalance AI](https://github.com/cliffordnwanna/BODYBALANCE.AI/raw/main/images/bodybalance.png)
+ ![BodyBalance AI](https://github.com/cliffordnwanna/BODYBALANCE.AI/raw/main/images/bodybalance.jpg)
 
 ## Project Overview
 
