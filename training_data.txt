@@ -40,7 +40,7 @@ answer: Yes, our products are designed for individuals of all ages, including yo
 question: What materials are used in your products?
 answer: Our products are crafted from premium materials like memory foam, breathable fabrics, and durable polymers to ensure comfort and longevity.
 
-question : Product Catalog
+question : product catalog
 answer: NECK AND BACK STRETCHER, MESH LUMBAR ERGONOMIC SUPPORT FOR CHAIRS, BRACES, AI-POWERED PAIN MANAGEMENT ASSISTANT
 
 Ordering & Payments:
@@ -100,9 +100,6 @@ answer: Enter your discount code in the designated field during checkout to appl
 question : product catalog
 answer: NECK AND BACK STRETCHER, MESH LUMBAR ERGONOMIC SUPPORT FOR CHAIRS, BRACES, AI-POWERED PAIN MANAGEMENT ASSISTANT
 
-question: Can you recommend a product for back pain?
-answer: Our Neck and Back Stretcher and Mesh Lumbar Support are highly effective for relieving back pain and improving posture.
-
 PRODUCT: NECK AND BACK STRETCHER
 PRICE: 25,000 NGN
 PRODUCT DESCRIPTION: Decompress your spine and relieve lower back pain. Ideal for tech professionals, office workers, and anyone seeking improved posture.
@@ -110,3 +107,9 @@ PRODUCT DESCRIPTION: Decompress your spine and relieve lower back pain. Ideal fo
 PRODUCT: MESH LUMBAR ERGONOMIC SUPPORT FOR CHAIRS
 PRICE: 10,000 NGN
 PRODUCT DESCRIPTION: Provides ergonomic support during prolonged sitting, improving posture and reducing spinal pressure.
+
+question: Can you recommend a solution for back pain?
+answer: Our Neck and Back Stretcher and Mesh Lumbar Support are highly effective for relieving back pain and improving posture.
+
+question: What should I do if I encounter issues with an order?
+answer: Contact our support team @ support@bodybalance.com for product information, technical and customer support.
