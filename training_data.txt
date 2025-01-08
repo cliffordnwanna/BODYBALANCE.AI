@@ -77,11 +77,11 @@ question: Do your products come with a warranty?
 answer: Yes, most BodyBalance products come with a 1-year warranty covering manufacturing defects.
 
 question: What should I do if I encounter issues with a product?
-answer: Contact our support team at support@bodybalance.com for product information, technical and customer support.
+answer: Contact our support team @ support@bodybalance.com for product information, technical and customer support.
 
 Technical Support:
 question: How can I get technical support for BodyBalance products?
-answer: Contact our support team via email or use the chatbot for initial guidance.
+answer: Contact our support team via email support@bodybalance.com
 
 question: Are there resources available for understanding product usage?
 answer: Yes, every product includes a manual, and our website features a Resources section for additional help.
@@ -96,7 +96,9 @@ answer: Yes, we frequently provide special promotions. Check our website and soc
 question: How can I redeem discount codes?
 answer: Enter your discount code in the designated field during checkout to apply it to your order.
 
-Product Catalog:
+question : Product Catalog
+answer: NECK AND BACK STRETCHER, MESH LUMBAR ERGONOMIC SUPPORT FOR CHAIRS, BRACES, AI-POWERED PAIN MANAGEMENT ASSISTANT
+
 question: Can you recommend a product for back pain?
 answer: Our Neck and Back Stretcher and Mesh Lumbar Support are highly effective for relieving back pain and improving posture.
 
