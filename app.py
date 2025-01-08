@@ -79,11 +79,11 @@ def find_similar_question(user_input, qa_pairs):
 
 # Streamlit app
 def main():
-    st.title("BODYBALANCE.AI")
-    st.write("Hello! I'm a chatbot designed by Clifford.")
-    st.write("How can I help you today?")
+    st.title                  ("BODYBALANCE.AI")
+    st.write("Hello! I'm a chatbot designed by Chukwuma Clifford Nwanna.")
+    st.write             ("How can I help you today?")
 
-    st.write("You can also choose from the options below:")
+    st.write      ("You can also choose from the options below:")
     st.write("About BodyBalance| Product Information | Ordering Process | Shipping and Delivery | Return Policy | Technical Support | Special Offers and Promotions")
 
     url = 'https://drive.google.com/uc?id=17oFQy97Loft7KY1EE5odtPMo2nCZCmzY&export=download'
