@@ -97,7 +97,7 @@ answer: Yes, we frequently provide special promotions. Check our website and soc
 question: How can I redeem discount codes?
 answer: Enter your discount code in the designated field during checkout to apply it to your order.
 
-question : Product Catalog
+question : product catalog
 answer: NECK AND BACK STRETCHER, MESH LUMBAR ERGONOMIC SUPPORT FOR CHAIRS, BRACES, AI-POWERED PAIN MANAGEMENT ASSISTANT
 
 question: Can you recommend a product for back pain?
