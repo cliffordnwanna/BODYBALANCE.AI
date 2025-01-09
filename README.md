@@ -40,7 +40,6 @@ This project serves as a powerful solution for businesses in the wellness indust
 - **Streamlit:** A web framework to create an interactive interface for BODYBALANCE.AI.
 - **Natural Language Toolkit (nltk):** For text preprocessing and tokenization.
 - **Scikit-learn:** Used for text vectorization and similarity measurement.
-- **TensorFlow/Keras:** Framework for any future machine learning models.
 - **Requests:** For downloading resources and integrating with external services.
 - **GitHub:** Version control and project repository.
 - **Google Drive API:** For hosting datasets.
