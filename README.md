@@ -75,7 +75,7 @@ To run this project locally, follow the steps below:
    You can run the chatbot locally by executing:
 
    ```bash
-   streamlit run bodybalance_app.py
+   streamlit run app.py
    ```
 
 5. **View the App**
