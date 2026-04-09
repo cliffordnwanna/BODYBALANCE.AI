@@ -8,7 +8,10 @@ from pathlib import Path
 import streamlit as st
 from typing import List, Dict
 from langchain_openai import OpenAIEmbeddings
-from langchain_core.vectorstores import InMemoryVectorStore
+try:
+    from langchain_core.vectorstores import InMemoryVectorStore
+except ImportError:
+    from langchain_community.vectorstores import InMemoryVectorStore
 
 class BodyBalanceVectorStore:
     def __init__(self):
