@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BODYBALANCE.AI Widget Integration Example</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .hero {
+            text-align: center;
+            color: white;
+            padding: 4rem 2rem;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .card h2 {
+            color: #2E7D32;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        .code-block .comment { color: #6a9955; }
+        .code-block .string { color: #ce9178; }
+        .code-block .keyword { color: #569cd6; }
+        .code-block .tag { color: #808080; }
+        .steps {
+            counter-reset: step;
+        }
+        .step {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            width: 2rem;
+            height: 2rem;
+            background: #2E7D32;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .step h3 {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .feature {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #2E7D32;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.4);
+        }
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>💪 BODYBALANCE.AI</h1>
+            <p>Embed an AI-powered chatbot on your website in minutes</p>
+        </div>
+
+        <div class="card">
+            <h2>🚀 Quick Integration</h2>
+            <p>Add these two lines to your website's HTML, just before the closing <code>&lt;/body&gt;</code> tag:</p>
+            <br>
+            <div class="code-block">
+<span class="comment">&lt;!-- BODYBALANCE.AI Widget --&gt;</span>
+<span class="tag">&lt;script</span> <span class="keyword">src</span>=<span class="string">"https://your-domain.com/widget.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+<span class="tag">&lt;script&gt;</span>
+  BodyBalanceWidget.init({
+    <span class="keyword">apiUrl</span>: <span class="string">'https://your-api-domain.com'</span>,
+    <span class="keyword">position</span>: <span class="string">'bottom-right'</span>,
+    <span class="keyword">primaryColor</span>: <span class="string">'#2E7D32'</span>,
+    <span class="keyword">title</span>: <span class="string">'Support Chat'</span>,
+    <span class="keyword">greeting</span>: <span class="string">'👋 Hi! How can I help you today?'</span>
+  });
+<span class="tag">&lt;/script&gt;</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📋 Setup Steps</h2>
+            <div class="steps">
+                <div class="step">
+                    <h3>Deploy the API</h3>
+                    <p>Deploy <code>backend_api.py</code> to a hosting service (Render, Railway, Fly.io, etc.)</p>
+                </div>
+                <div class="step">
+                    <h3>Host the Widget Script</h3>
+                    <p>Upload <code>widget.js</code> to your CDN or serve it from your API server</p>
+                </div>
+                <div class="step">
+                    <h3>Add to Your Website</h3>
+                    <p>Copy the integration code above and paste it into your website's HTML</p>
+                </div>
+                <div class="step">
+                    <h3>Customize</h3>
+                    <p>Adjust colors, position, and greeting to match your brand</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>⚙️ Configuration Options</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #eee;">
+                        <th style="text-align: left; padding: 0.75rem;">Option</th>
+                        <th style="text-align: left; padding: 0.75rem;">Type</th>
+                        <th style="text-align: left; padding: 0.75rem;">Default</th>
+                        <th style="text-align: left; padding: 0.75rem;">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 0.75rem;"><code>apiUrl</code></td>
+                        <td style="padding: 0.75rem;">string</td>
+                        <td style="padding: 0.75rem;"><em>required</em></td>
+                        <td style="padding: 0.75rem;">Your API server URL</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 0.75rem;"><code>position</code></td>
+                        <td style="padding: 0.75rem;">string</td>
+                        <td style="padding: 0.75rem;">'bottom-right'</td>
+                        <td style="padding: 0.75rem;">'bottom-right' or 'bottom-left'</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 0.75rem;"><code>primaryColor</code></td>
+                        <td style="padding: 0.75rem;">string</td>
+                        <td style="padding: 0.75rem;">'#2E7D32'</td>
+                        <td style="padding: 0.75rem;">Brand color (hex)</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 0.75rem;"><code>title</code></td>
+                        <td style="padding: 0.75rem;">string</td>
+                        <td style="padding: 0.75rem;">'BODYBALANCE.AI'</td>
+                        <td style="padding: 0.75rem;">Widget header title</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem;"><code>greeting</code></td>
+                        <td style="padding: 0.75rem;">string</td>
+                        <td style="padding: 0.75rem;">'👋 Hi!...'</td>
+                        <td style="padding: 0.75rem;">Initial greeting message</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>✨ Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">💬</div>
+                    <strong>Real-time Chat</strong>
+                    <p>Instant responses</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎨</div>
+                    <strong>Customizable</strong>
+                    <p>Match your brand</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <strong>Mobile Ready</strong>
+                    <p>Works on all devices</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <strong>Lightweight</strong>
+                    <p>Fast loading</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 2rem 0;">
+            <a href="/widget/demo" class="btn">View Live Demo →</a>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 BODYBALANCE.AI | Built for Nigerian & African businesses</p>
+        </div>
+    </div>
+
+    <!-- Demo: Load the widget on this page -->
+    <script src="widget.js"></script>
+    <script>
+        // Demo initialization - replace with your actual API URL
+        BodyBalanceWidget.init({
+            apiUrl: window.location.origin.replace(':5500', ':8000'), // Adjust port for local dev
+            position: 'bottom-right',
+            primaryColor: '#2E7D32',
+            title: 'BODYBALANCE.AI',
+            greeting: '👋 Hi! This is a demo. How can I help you today?'
+        });
+    </script>
+</body>
+</html>

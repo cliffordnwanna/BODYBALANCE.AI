@@ -1,150 +1,298 @@
-# BODYBALANCE.AI 
+# BODYBALANCE.AI - RAG-Powered AI Physiotherapy Concierge
 
- ![BodyBalance AI](https://github.com/cliffordnwanna/BODYBALANCE.AI/raw/main/images/bodybalance.jpg)
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.32+-red.svg)
+![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o--mini-412991.svg)
+![LangChain](https://img.shields.io/badge/LangChain-0.3+-green.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-## Project Overview
+A production-grade RAG (Retrieval-Augmented Generation) AI concierge that turns website visitors into paying patients. Built with LangChain LCEL, OpenAI, and Streamlit.
 
-**BODYBALANCE.AI** is an AI-driven chatbot designed to revolutionize customer interaction for the BodyBalance brand. This project leverages cutting-edge machine learning and natural language processing techniques to provide real-time responses to customer inquiries. By recommending pain relief products and assisting customers in placing orders, the chatbot not only enhances the customer support experience but also drives increased engagement and sales opportunities for wellness businesses.
+## Why This Matters for Your Practice
 
-This project serves as a powerful solution for businesses in the wellness industry looking to streamline their customer service and increase brand loyalty through automation and AI.
+**BODYBALANCE.AI** answers patient questions 24/7 and converts curious visitors into booked appointments via WhatsApp. No missed inquiries. No after-hours voicemails. Just qualified leads delivered directly to your phone.
 
----
+### Business Impact
+- **24/7 Patient Support**: Capture inquiries while you sleep, treat patients, or enjoy weekends
+- **Direct WhatsApp Conversions**: Every AI response includes instant booking buttons for in-person (₦150k) and virtual sessions (₦50k)
+- **Pre-Qualified Leads**: Patients arrive informed about your services and pricing
+- **Zero Infrastructure Cost**: Deploy free on Streamlit Cloud, pay only for OpenAI API usage (~$0.01 per conversation)
+- **Medical Safety First**: Built-in emergency detection redirects critical cases to hospital ER immediately
 
-## Table of Contents
+### For Other Healthcare Professionals
+This architecture works for any appointment-based practice:
+- **Physiotherapists** (current implementation)
+- **Dentists, Optometrists, Chiropractors**: Swap the knowledge base, keep the booking flow
+- **Psychologists, Nutritionists**: Modify pricing tiers and session types
+- **Veterinary Clinics, Wellness Centers**: Adapt the guardrails for your specialty
 
-- [Project Overview](#project-overview)
-- [Project Features](#project-features)
-- [Technologies and Tools Used](#technologies-and-tools-used)
-- [Installation Guide](#installation-guide)
-- [Usage](#usage)
-- [Screenshots](#screenshots)
-- [How BODYBALANCE.AI Solves Real-World Problems](#how-bodybalanceai-solves-real-world-problems)
-- [Contributing](#contributing)
-- [License](#license)
+### Key Features
+- **RAG Architecture**: LangChain LCEL with InMemoryVectorStore for semantic document retrieval
+- **AI Models**: OpenAI GPT-4o-mini (chat) + text-embedding-3-small (embeddings)
+- **Safety Guardrails**: Emergency red-flag detection with human escalation
+- **Structured Outputs**: Pydantic-based response formatting with exercises and CTAs
+- **WhatsApp Integration**: Direct booking links for in-person and virtual consultations
+- **Session Limits**: 3-question limit per session to prevent abuse
 
----
-
-## Project Features
-
-- **AI-Powered Chatbot:** Utilizes machine learning models to answer customer FAQs, recommend pain relief products, and assist with orders.
-- **Streamlit-Based Interface:** A sleek, easy-to-use web application hosted on Streamlit, accessible to both business owners and customers.
-- **Product Recommendations:** Personalized suggestions for pain relief products based on customer queries.
-- **Automated Customer Support:** Provides 24/7 assistance to customers, improving response time and reducing the need for manual support.
-- **Natural Language Processing (NLP):** Implements advanced NLP techniques to understand user queries and provide relevant responses.
-
----
-
-## Technologies and Tools Used
-
-- **Python:** Core programming language used for developing the chatbot logic.
-- **Streamlit:** A web framework to create an interactive interface for BODYBALANCE.AI.
-- **Natural Language Toolkit (nltk):** For text preprocessing and tokenization.
-- **Scikit-learn:** Used for text vectorization and similarity measurement.
-- **Requests:** For downloading resources and integrating with external services.
-- **GitHub:** Version control and project repository.
-- **Google Drive API:** For hosting datasets.
-  
----
-
-## Installation Guide
-
-To run this project locally, follow the steps below:
-
-1. **Clone the Repository**
-
-   ```bash
-   git clone https://github.com/cliffordnwanna/BODYBALANCE.AI.git
-   ```
-
-2. **Navigate to the Project Directory**
-
-   ```bash
-   cd BODYBALANCE.AI
-   ```
-
-3. **Install Dependencies**
-
-   Make sure you have Python installed. Then, install the required dependencies using:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Run the Application**
-
-   You can run the chatbot locally by executing:
-
-   ```bash
-   streamlit run app.py
-   ```
-
-5. **View the App**
-
-   Open your browser and go to `http://localhost:8501` to view the chatbot interface.
+### Clinic Information
+- **Name**: BodyBalance Physiotherapy Clinic
+- **Location**: Lagos, Nigeria
+- **Lead Therapist**: Cherry Nwanna (BMR.PT)
+- **WhatsApp**: +234 813 629 3596
+- **Services**: In-Person Session (₦150,000) | Virtual Consultation (₦50,000)
 
 ---
 
-## Usage
+## Architecture
 
-1. After starting the application, you will be greeted with the BodyBalance chatbot interface.
-2. You can enter your queries in the input box provided, and the chatbot will respond based on the pre-trained data.
-3. For common questions related to products, shipping, and support, the chatbot provides accurate answers in real-time.
-4. The chatbot is capable of recommending pain relief products based on user input.
+### Tech Stack
+| Component | Technology |
+|-----------|------------|
+| LLM | OpenAI GPT-4o-mini |
+| Embeddings | OpenAI text-embedding-3-small |
+| Vector Store | LangChain InMemoryVectorStore |
+| Framework | LangChain LCEL (LangChain Expression Language) |
+| UI | Streamlit |
+| Output Parsing | Pydantic v2 |
+
+### Project Structure
+```
+BODYBALANCE.AI/
+├── src/
+│   ├── core/
+│   │   ├── vector_store.py     # InMemoryVectorStore with OpenAI embeddings
+│   │   ├── chains.py           # LangChain LCEL + GPT-4o-mini
+│   │   └── guardrails.py       # Emergency red-flag detection
+│   ├── ui/
+│   │   ├── components.py       # UI render functions
+│   │   └── styles.py           # Custom CSS styling
+│   └── main.py                 # Streamlit entry point
+├── data/
+│   └── knowledge_base.jsonl    # Physiotherapy clinic knowledge base
+├── .streamlit/
+│   ├── config.toml             # Streamlit configuration
+│   └── secrets.toml            # API keys (OpenAI)
+├── requirements.txt            # Dependencies
+└── README.md                   # This file
+```
 
 ---
 
-## Screenshots
+## Quick Start
 
-1. **Chatbot Interface:** 
+### Prerequisites
+- Python 3.9+
+- OpenAI API key
 
- ![BodyBalance AI](https://github.com/cliffordnwanna/BODYBALANCE.AI/raw/main/images/interface.png)
+### Installation
 
-2. **Product Recommendations:**
+```bash
+# 1. Clone the repository
+git clone https://github.com/cliffordnwanna/BODYBALANCE.AI.git
+cd BODYBALANCE.AI
 
- ![BodyBalance AI](https://github.com/cliffordnwanna/BODYBALANCE.AI/raw/main/images/recommendation.png)
+# 2. Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-3. **Customer Support:**
-   
-![BodyBalance AI](https://github.com/cliffordnwanna/BODYBALANCE.AI/raw/main/images/support.png)
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Set up OpenAI API key
+echo 'OPENAI_API_KEY = "your-openai-key-here"' > .streamlit/secrets.toml
+
+# 5. Run the app
+streamlit run app.py
+```
+
+Open your browser at `http://localhost:8501`
 
 ---
 
-## How BODYBALANCE.AI Solves Real-World Problems
+## How It Works
 
-The wellness industry, particularly pain relief and physical therapy sectors, face challenges in delivering timely customer support and offering personalized recommendations. Customers often have many questions about products and services, and businesses may not have enough human resources to provide immediate responses. BODYBALANCE.AI offers a comprehensive solution to these issues:
+### 1. Document Ingestion
+- Knowledge base stored in `data/knowledge_base.jsonl`
+- Documents embedded using OpenAI text-embedding-3-small
+- Vector store: LangChain InMemoryVectorStore (in-memory, zero config)
 
-- **Enhanced Customer Support:** With its 24/7 availability, BODYBALANCE.AI can answer frequent customer queries, allowing businesses to focus on other operational tasks.
-  
-- **Increased Sales Opportunities:** By recommending products based on user input, the chatbot assists in cross-selling and upselling, driving more revenue.
+### 2. Query Flow
+```
+User Query → Guardrails Check → Vector Retrieval → 
+RAG Chain (GPT-4o-mini) → Structured Response → WhatsApp CTA
+```
 
-- **Customer Satisfaction and Retention:** Quick and helpful responses to queries build trust, improving customer experience and loyalty to the brand.
+### 3. Safety Features
+- **Red Flag Detection**: Automatic escalation for emergency keywords
+- **3-Question Limit**: Users must refresh after 3 questions
+- **Disclaimer**: AI guidance is not a substitute for professional care
 
-- **Reduced Operating Costs:** Automating customer support with a chatbot minimizes the need for large support teams, reducing operational expenses for wellness businesses.
+### 4. Response Format
+```json
+{
+  "type": "medical_advice|appointment|pricing|general",
+  "message": "Professional response text",
+  "exercises": [
+    {
+      "name": "Exercise name",
+      "steps": ["Step 1", "Step 2"],
+      "reps": "3 sets of 10",
+      "caution": "Avoid if pain increases"
+    }
+  ],
+  "cta": "Book your session today"
+}
+```
+
+---
+
+## Configuration
+
+### Environment Variables
+Create `.streamlit/secrets.toml`:
+```toml
+OPENAI_API_KEY = "sk-your-openai-key-here"
+```
+
+### Knowledge Base
+Update `data/knowledge_base.jsonl` with your clinic's information:
+```json
+{"text": "BodyBalance Clinic offers physiotherapy services in Lagos..."}
+```
+
+### Customization
+- **Clinic Hours**: Edit `src/main.py` (sidebar section)
+- **Pricing**: Edit `src/ui/components.py` (`render_clinic_cta_card`)
+- **WhatsApp Number**: Edit `src/ui/components.py` (update +2348136293596)
+
+---
+
+## Deployment
+
+### Streamlit Cloud (Recommended)
+1. Push code to GitHub
+2. Connect repo at [share.streamlit.io](https://share.streamlit.io)
+3. Set `OPENAI_API_KEY` in Secrets management
+4. Deploy `app.py`
+
+### Docker
+```dockerfile
+FROM python:3.9-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["streamlit", "run", "app.py", "--server.port=8501"]
+```
+
+---
+
+## RAG Implementation Details
+
+### Why InMemoryVectorStore?
+- Zero configuration (no external database)
+- Fast startup for small knowledge bases (<1000 docs)
+- Perfect for single-tenant clinic deployments
+
+### Why OpenAI?
+- GPT-4o-mini: Cost-effective, medical-grade reasoning
+- text-embedding-3-small: 1536-dim embeddings, excellent semantic search
+- Reliable API with consistent model availability
+
+### Why LangChain LCEL?
+- Composable pipeline: `prompt | llm | parser`
+- Easy to extend with additional steps
+- Production-ready with proper error handling
+
+---
+
+## Safety & Compliance
+
+### Medical AI Guardrails
+1. **Emergency Detection**: Hardcoded red-flag keywords trigger immediate escalation
+2. **Structured Responses**: Pydantic schema prevents free-form medical advice
+3. **Human-in-the-Loop**: WhatsApp booking links for all clinical decisions
+4. **Session Limits**: Prevents infinite loops and API abuse
+
+### Data Privacy
+- No PII stored in vector store
+- No conversation logs retained
+- OpenAI API: Zero data retention policy
+- WhatsApp: End-to-end encrypted
+
+---
+
+## Customization for Your Practice
+
+### Step 1: Fork and Clone
+```bash
+git clone https://github.com/cliffordnwanna/BODYBALANCE.AI.git
+cd BODYBALANCE.AI
+```
+
+### Step 2: Update Knowledge Base
+Edit `data/knowledge_base.jsonl` with your clinic's information:
+```json
+{"text": "Your Clinic Name offers [your services] in [your location]..."}
+```
+
+### Step 3: Configure Branding
+Edit `src/main.py`:
+- Clinic name and tagline (line 54-55)
+- Operating hours (line 60)
+- Location (line 64)
+
+### Step 4: Set Pricing & WhatsApp
+Edit `src/ui/components.py`:
+- WhatsApp number in `render_clinic_cta_card()` (line 112-113)
+- Service pricing in the green card (line 106-107)
+
+### Step 5: Deploy
+```bash
+streamlit run app.py
+```
+
+### Cost Estimation
+- **OpenAI API**: ~$0.01-0.03 per conversation (GPT-4o-mini is cheap)
+- **Streamlit Cloud**: Free tier sufficient for small clinics
+- **WhatsApp Business**: Free for standard messaging
 
 ---
 
 ## Contributing
 
-We welcome contributions to improve BODYBALANCE.AI. To contribute:
-
-1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature-name`).
-3. Commit your changes (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature-name`).
-5. Open a pull request.
+1. Fork the repository
+2. Create feature branch: `git checkout -b feature/your-feature`
+3. Commit changes: `git commit -m 'Add feature'`
+4. Push to branch: `git push origin feature/your-feature`
+5. Open Pull Request
 
 ---
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/cliffordnwanna/BODYBALANCE.AI/blob/main/LICENSE) file for details.
+MIT License - see [LICENSE](LICENSE) file.
 
 ---
 
-### Contact Information
-
-For any inquiries or support related to BODYBALANCE.AI, please contact:
+## Contact
 
 **Clifford Nwanna**  
-*Email*: [nwannachumaclifford@gmail.com](mailto:nwannachumaclifford@gmail.com)
+Email: [nwannachumaclifford@gmail.com](mailto:nwannachumaclifford@gmail.com)
+
+**BodyBalance Clinic**  
+WhatsApp: [+234 813 629 3596](https://wa.me/2348136293596)
+
+---
+
+## Changelog
+
+### v3.0.0 (April 2025)
+- Complete RAG architecture migration (TF-IDF → LangChain + OpenAI)
+- Added InMemoryVectorStore for zero-config vector search
+- Implemented GPT-4o-mini with Pydantic structured outputs
+- Added emergency red-flag detection guardrails
+- Integrated WhatsApp booking CTAs
+- Added 3-question session limits
+- Removed: Google Sheets, Twilio, ChromaDB dependencies
 

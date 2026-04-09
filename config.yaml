@@ -1,0 +1,34 @@
+# BODYBALANCE.AI Configuration
+# Copy this file and customize for your business
+
+# NLP Settings
+similarity_threshold: 0.3  # Minimum similarity score (0.0 - 1.0)
+
+# Data Sources
+google_sheet_id: ""  # Your Google Sheet ID (leave empty to use local files)
+google_credentials_path: ""  # Path to Google service account JSON
+qa_text_path: "training_data.txt"  # Fallback text file
+qa_json_path: "qa_data.json"  # JSON data file
+
+# Cache Settings
+cache_ttl_minutes: 5  # How often to refresh data from Google Sheets
+
+# Session Settings
+session_timeout_minutes: 30
+feedback_enabled: true
+
+# Admin Settings
+admin_password: "admin123"  # Change this in production!
+
+# Logging
+log_level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+
+# Branding
+app_title: "BODYBALANCE.AI"
+app_subtitle: "Your AI-Powered Wellness Assistant"
+primary_color: "#2E7D32"
+background_color: "#F5F5F5"
+
+# Support Contact
+support_email: "support@bodybalance.com"
+support_phone: "+234 XXX XXX XXXX"

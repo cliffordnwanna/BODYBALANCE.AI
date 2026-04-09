@@ -1,0 +1,4 @@
+# WhatsApp Bot Dependencies
+flask==3.0.0
+twilio==8.10.0
+gunicorn==21.2.0
