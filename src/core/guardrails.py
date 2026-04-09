@@ -14,7 +14,13 @@ RED_FLAGS = [
     r"\bunconscious\b",
     r"\bsudden\s+weakness\b",
     r"\bfainting\b",
-    r"\bseizure\b"
+    r"\bseizure\b",
+    r"\bheart\s+attack\b",
+    r"\bdifficulty\s+breathing\b",
+    r"\ballergic\s+reaction\b",
+    r"\banaphylaxis\b",
+    r"\bcyanosis\b",
+    r"\bblue\s+lips\b"
 ]
 
 def check_red_flags(text: str) -> str:

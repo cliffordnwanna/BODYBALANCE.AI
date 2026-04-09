@@ -6,7 +6,9 @@
 ![LangChain](https://img.shields.io/badge/LangChain-0.3+-green.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-A production-grade RAG (Retrieval-Augmented Generation) AI concierge that turns website visitors into paying patients. Built with LangChain LCEL, OpenAI, and Streamlit.
+A production-grade **RAG pipeline** (Retrieval-Augmented Generation) AI concierge that turns website visitors into paying patients. Built with **LangChain LCEL**, **OpenAI GPT-4o-mini**, and **Streamlit**.
+
+**Keywords:** `RAG pipeline` · `LangChain` · `Streamlit` · `session-state patient intake flow` · `guardrail layer` · `GDPR-aligned BMI handling` · `vector store` · `structured Pydantic output schema` · `clinical NLP intent classification` · `production chatbot architecture` · `@st.cache_resource` vector store singleton · `lazy chain initialisation` · `input sanitisation` · `rate limiting` · `serialisation-safe chat history` · `post-intake question gating`
 
 ## Why This Matters for Your Practice
 
@@ -29,10 +31,24 @@ This architecture works for any appointment-based practice:
 ### Key Features
 - **RAG Architecture**: LangChain LCEL with InMemoryVectorStore for semantic document retrieval
 - **AI Models**: OpenAI GPT-4o-mini (chat) + text-embedding-3-small (embeddings)
-- **Safety Guardrails**: Emergency red-flag detection with human escalation
-- **Structured Outputs**: Pydantic-based response formatting with exercises and CTAs
+- **Human-Like Intake Flow**: Clinical NLP intent detection (pain/booking/curious) with personalized, empathetic responses
+- **Privacy-First BMI**: Range-based selector stores only BMI category (underweight/normal/overweight/obese), never exact values - GDPR compliant
+- **Guardrail-First Pipeline**: Emergency red-flag detection runs BEFORE LLM call for safety
+- **Structured Outputs**: Pydantic-based response schema with exercise cards and CTAs
 - **WhatsApp Integration**: Direct booking links for in-person and virtual consultations
-- **Session Limits**: 3-question limit per session to prevent abuse
+- **Session Limits**: 3-question limit per session with rate limiting (1 sec between messages)
+- **Zero Data Persistence**: All patient data in-memory only, no chat history storage
+- **Production Hardened**: Input sanitization (500 char limit), `@st.cache_resource` for vector store, defensive error handling
+
+### Key Differentiators
+
+1. **Privacy-First Design**: Unlike typical chatbots that store raw BMI values, this implementation uses **range-based selectors** and only stores BMI *category* (underweight/normal/overweight/obese). Exact height/weight never touch the server - GDPR-aligned by design.
+
+2. **Guardrail-First Response Pipeline**: Emergency keywords are checked **before** any LLM call. Critical symptoms trigger immediate human escalation without AI delay - a safety-first architecture for healthcare applications.
+
+3. **Structured Clinical Output**: Responses follow a strict Pydantic schema with typed exercise cards and conversion CTAs, enabling consistent UI rendering and reliable downstream processing.
+
+4. **Session-State Patient Intake**: Multi-step intent detection with personalized pathways (pain vs. booking vs. curious) creates a human-like consultation flow, not a generic Q&A bot.
 
 ### Clinic Information
 - **Name**: BodyBalance Physiotherapy Clinic
@@ -111,23 +127,38 @@ Open your browser at `http://localhost:8501`
 
 ## How It Works
 
-### 1. Document Ingestion
+### 1. Patient Intake Flow
+```
+Greeting → Intent Detection → Conditional Data Collection → RAG Response → WhatsApp CTA
+```
+
+**Step-by-Step:**
+1. **Warm Greeting**: Bot introduces itself as BodyBalance, asks what brings the user
+2. **Intent Detection**: Classifies as pain/booking/curious/testing with tailored response
+3. **Pain Patients Only**: 
+   - Extracts pain location and duration from natural language
+   - **Privacy-First BMI**: User selects height/weight ranges → only BMI category stored (underweight/normal/overweight/obese)
+   - Exact BMI value never stored or sent to LLM
+4. **Personalized RAG**: LLM receives patient context (name, pain location, pain duration, BMI category) for tailored advice
+5. **Conversion**: Every response ends with WhatsApp booking link
+
+### 2. Document Ingestion
 - Knowledge base stored in `data/knowledge_base.jsonl`
 - Documents embedded using OpenAI text-embedding-3-small
 - Vector store: LangChain InMemoryVectorStore (in-memory, zero config)
 
-### 2. Query Flow
+### 3. Query Flow
 ```
 User Query → Guardrails Check → Vector Retrieval → 
 RAG Chain (GPT-4o-mini) → Structured Response → WhatsApp CTA
 ```
 
-### 3. Safety Features
+### 4. Safety Features
 - **Red Flag Detection**: Automatic escalation for emergency keywords
 - **3-Question Limit**: Users must refresh after 3 questions
 - **Disclaimer**: AI guidance is not a substitute for professional care
 
-### 4. Response Format
+### 5. Response Format
 ```json
 {
   "type": "medical_advice|appointment|pricing|general",
@@ -256,6 +287,16 @@ streamlit run app.py
 - **OpenAI API**: ~$0.01-0.03 per conversation (GPT-4o-mini is cheap)
 - **Streamlit Cloud**: Free tier sufficient for small clinics
 - **WhatsApp Business**: Free for standard messaging
+
+---
+
+## Known Limitations
+
+| Limitation | Explanation |
+|------------|-------------|
+| **Refresh resets question counter** | The 3-question limit is session-based. A hard browser refresh creates a new session, resetting the counter. This is a known trade-off with Streamlit's stateless architecture — server-side tracking would require a database, which would compromise the zero-persistence privacy model. |
+| **Non-English input** | Intent detection relies on English keywords. Yoruba, Pidgin, or other languages may fall back to `general` intent, but the RAG system will still attempt to respond helpfully. |
+| **Concurrent tabs** | Two browser tabs share the cached vector store but have independent session states. A user can have two separate conversations simultaneously. |
 
 ---
 

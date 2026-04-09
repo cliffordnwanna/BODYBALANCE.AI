@@ -54,7 +54,7 @@ def render_clinic_cta_card(is_sidebar: bool = False):
                 Book In-Person
             </a>
             <a href="{virtual_url}" target="_blank" style="background-color: #FFFFFF; color: #1B5E20; border: 1px solid #1B5E20; text-decoration: none; padding: 8px; border-radius: 6px; text-align: center; font-size: 0.85em; font-weight: 600;">
-                Book Virtual (₦50k)
+                Book Virtual
             </a>
         </div>
         <div style="font-size: 0.7em; color: #666; margin-top: 10px; font-style: italic;">
@@ -94,20 +94,41 @@ def render_whatsapp_link():
     </div>
     """, unsafe_allow_html=True)
 
-def render_clinic_cta_card(is_sidebar=False):
-    """Renders the clinic booking CTA card."""
-    container = st.sidebar if is_sidebar else st
-    container.markdown("""
-    <div style="background:#1B5E20;padding:16px;border-radius:10px;color:white;margin-bottom:12px;">
-        <h4 style="margin:0">BodyBalance Clinic</h4>
-        <p style="margin:4px 0">Lead Therapist: <b>Cherry Nwanna (BMR.PT)</b></p>
-        <p style="margin:4px 0">Services:</p>
-        <ul style="margin:4px 0">
-            <li>In-Person Session: 150,000</li>
-            <li>Virtual Consultation: 50,000</li>
-        </ul>
-        <p style="font-size:0.8em;font-style:italic">"AI guidance is not a substitute for professional care."</p>
-    </div>
-    """, unsafe_allow_html=True)
-    st.sidebar.link_button("Book In-Person", "https://wa.me/2348136293596", use_container_width=True)
-    st.sidebar.link_button("Book Virtual", "https://wa.me/2348136293596", use_container_width=True)
+def render_quick_reply_buttons(options):
+    """Render quick reply buttons that set the input value."""
+    cols = st.columns(min(len(options), 2))
+    for idx, option in enumerate(options):
+        with cols[idx % 2]:
+            button_key = f"quick_reply_{idx}_{option[:20].replace(' ', '_')}"
+            if st.button(option, key=button_key, use_container_width=True):
+                st.session_state.quick_reply_clicked = True
+                st.session_state.quick_reply_value = option
+                st.session_state.pending_query = option
+
+def render_bmi_calculator():
+    """Render BMI calculator with guidance."""
+    with st.expander("Optional: Share your height and weight for tailored exercise guidance"):
+        col1, col2 = st.columns(2)
+        with col1:
+            height = st.number_input("Height (cm)", min_value=100, max_value=250, value=None, placeholder="e.g., 175")
+        with col2:
+            weight = st.number_input("Weight (kg)", min_value=30, max_value=200, value=None, placeholder="e.g., 70")
+        
+        if height and weight:
+            height_m = height / 100
+            bmi = weight / (height_m ** 2)
+            bmi = round(bmi, 1)
+            
+            if bmi < 18.5:
+                guidance = "underweight - gentle strengthening exercises recommended"
+            elif bmi < 25:
+                guidance = "healthy weight - standard exercises appropriate"
+            elif bmi < 30:
+                guidance = "overweight - low-impact exercises, focus on mobility"
+            else:
+                guidance = "obese - very gentle, water-based therapy recommended"
+            
+            st.info(f"Your BMI: {bmi} ({guidance})")
+            return bmi
+    return None
+
