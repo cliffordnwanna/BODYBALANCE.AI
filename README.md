@@ -287,7 +287,7 @@ WhatsApp: [+234 813 629 3596](https://wa.me/2348136293596)
 
 ## Changelog
 
-### v3.0.0 (April 2025)
+### v3.0.0 (April 2026)
 - Complete RAG architecture migration (TF-IDF → LangChain + OpenAI)
 - Added InMemoryVectorStore for zero-config vector search
 - Implemented GPT-4o-mini with Pydantic structured outputs
