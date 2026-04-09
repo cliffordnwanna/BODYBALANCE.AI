@@ -85,6 +85,8 @@ class BodyBalanceChain:
 
     def run(self, query: str) -> ClinicResponse:
         try:
+            # Ensure vector store is initialized before accessing retriever
+            self.vector_store._ensure_initialized()
             # Retrieve context using LangChain retriever
             context_docs = self.vector_store.retriever.invoke(query)
             context = "\n".join([doc.page_content for doc in context_docs])

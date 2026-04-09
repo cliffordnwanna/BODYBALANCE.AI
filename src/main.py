@@ -124,6 +124,12 @@ def get_intent_response(intent, name=None):
     return responses.get(intent, responses['general'])
 
 def main():
+    # Validate secrets first - fail fast with clear error
+    if "OPENAI_API_KEY" not in st.secrets:
+        st.error("⚠️ OpenAI API key not configured.")
+        st.info("Please add OPENAI_API_KEY to your Streamlit Cloud Secrets (Manage App → Secrets).")
+        st.stop()
+    
     # Initialize Session State - MUST be first thing in main()
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = []
