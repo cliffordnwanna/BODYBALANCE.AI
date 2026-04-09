@@ -188,14 +188,14 @@ def main():
         
         # Defensive check for analytics
         if "analytics" in st.session_state and isinstance(st.session_state.analytics, dict):
-            st.metric("Total Patient Queries", st.session_state.analytics.get("total_queries", 0))
+            st.metric("Total Queries", st.session_state.analytics.get("total_queries", 0))
             
             with st.expander("Response Types"):
                 types_data = st.session_state.analytics.get("types", {})
                 for t, count in types_data.items():
                     st.write(f"**{t.replace('_', ' ').capitalize()}:** {count}")
         else:
-            st.metric("Total Patient Queries", 0)
+            st.metric("Total Queries", 0)
 
         st.markdown("---")
         st.markdown("""
@@ -476,29 +476,42 @@ BMI Category: {bmi_display}
                             message_text = response.message
                             if response.exercises and len(response.exercises) > 0:
                                 # Check if message has exercise descriptions (Steps, Reps, How to do it, etc.)
-                                exercise_keywords = ['steps:', 'reps:', 'how to do it:', 'reps/sets:', 'caution:']
+                                exercise_keywords = ['steps:', 'reps:', 'how to do it:', 'reps/sets:', 'caution:', 'sets:']
                                 has_exercise_desc = any(keyword in message_text.lower() for keyword in exercise_keywords)
                                 
                                 if has_exercise_desc:
                                     # Try to find where exercise descriptions start and truncate
-                                    # Common patterns: "Here are some exercises:", "Try these:", "Steps:"
+                                    # Common patterns: exercise names with markdown, section headers, etc.
                                     split_patterns = [
-                                        '\n\nHere are',
-                                        '\nHere are',
-                                        'Here are some',
-                                        'Try these exercises',
-                                        'Pelvic Tilts',
-                                        'Steps:',
                                         '\n\n**Pelvic',
-                                        '\n**Pelvic'
+                                        '\n**Pelvic',
+                                        '\n\n*Pelvic',
+                                        '\n*Pelvic',
+                                        '\n\nPelvic',
+                                        '\nPelvic',
+                                        'Here are some exercises',
+                                        'Here are the exercises',
+                                        'Try these exercises',
+                                        'Steps:',
+                                        '\n\n1. **',
+                                        '\n1. **'
                                     ]
+                                    truncated = False
                                     for pattern in split_patterns:
                                         if pattern in message_text:
                                             message_text = message_text.split(pattern)[0].strip()
-                                            if not message_text.endswith('.'):
-                                                message_text += '.'
-                                            message_text += ' See the exercise cards below:'
+                                            truncated = True
                                             break
+                                    
+                                    # Clean up any trailing artifacts
+                                    message_text = re.sub(r'\*+$', '', message_text).strip()  # Remove trailing asterisks
+                                    message_text = re.sub(r'\n+$', '', message_text).strip()  # Remove trailing newlines
+                                    
+                                    # Add proper ending
+                                    if truncated:
+                                        if not message_text.endswith('.'):
+                                            message_text += '.'
+                                        message_text += ' See the exercise cards below:'
                             
                             # Render message (possibly deduplicated)
                             st.write(message_text)

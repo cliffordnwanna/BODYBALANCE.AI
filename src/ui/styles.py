@@ -37,8 +37,7 @@ def inject_custom_styles():
         /* Exercise Card Styling */
         .exercise-card {
             background-color: #FFFFFF;
-            border: 1px solid #E0E0E0;
-            border-left: 4px solid #1B5E20;
+            border: 2px solid #1B5E20;
             border-radius: 8px;
             padding: 1.2em;
             margin: 1em 0;
